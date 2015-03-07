@@ -38,4 +38,4 @@ grunt watch
 
 ## License
 
-[MIT](https://github.com/dgil/generator-firefox-extension/blob/master/LICENSE)) © Gil Casadevall
+[MIT](https://github.com/dgil/generator-firefox-extension/blob/master/LICENSE) © Gil Casadevall
