@@ -18,8 +18,9 @@ module.exports = function(grunt) {
         shell: {
             xpi: {
                 command: [
-                    'cfx xpi',
-                    'wget --post-file=<%%= config.app %>/<%%= config.name %>.xpi http://localhost:8888/ || echo>/dev/null'
+                    'cfx xpi --pkgdir=app',
+                    'mv <%%= config.name %>.xpi <%%= config.dist %>',
+                    'wget --post-file=<%%= config.dist %>/<%%= config.name %>.xpi http://localhost:8888/ || echo>/dev/null'
                 ].join('&&')
             }
         },

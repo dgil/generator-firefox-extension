@@ -1,7 +1,7 @@
 var data = require("sdk/self").data;
-// Construct a panel, loading its content from the "text-entry.html"
-// file in the "data" directory, and loading the "get-text.js" script
-// into it.
+
+// Construct a panel, loading its content from the "popup.html"
+// file in the "data" directory
 var popup = require("sdk/panel").Panel({
     contentURL: data.url("popup.html")
 });
@@ -18,7 +18,7 @@ require("sdk/ui/button/action").ActionButton({
     onClick: handleClick
 });
 
-// Show the panel when the user clicks the button.
+// Show the panel when user clicks the button.
 function handleClick(state) {
     popup.show();
 }

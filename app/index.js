@@ -46,6 +46,7 @@ module.exports = yeoman.generators.Base.extend({
                 this.templatePath('app'),
                 this.destinationPath('app')
             );
+            this.mkdir('dist');
         },
 
         gruntfile: function () {

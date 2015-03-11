@@ -30,6 +30,8 @@ describe('Firefox Extension generator', function () {
 
     it('creates project files', function (done) {
         var expected = [
+            'app',
+            'dist',
             'bower.json',
             '.bowerrc',
             '.gitignore',
