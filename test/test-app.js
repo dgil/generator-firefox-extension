@@ -1,9 +1,10 @@
+/*global describe, beforeEach, it*/
+
 'use strict';
 
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var os = require('os');
 var _ = require('underscore');
 
 describe('Firefox Extension generator', function () {
@@ -58,13 +59,15 @@ describe('Firefox Extension generator', function () {
             });
     });
 
-    it('creates extension files', function (done) {
+    it('creates expected extension files with defaults', function (done) {
         var expected = [
             'app/package.json',
             'app/data/icon-16.png',
             'app/data/icon-32.png',
             'app/data/icon-64.png',
             'app/data/popup.html',
+            'app/data/contentscript.js',
+            'app/data/contentstyle.css',
             'app/lib/main.js'
         ];
 
@@ -72,6 +75,70 @@ describe('Firefox Extension generator', function () {
             .withOptions(options)
             .on('end', function () {
                 assert.file(expected);
+                done();
+            });
+    });
+
+    it('creates expected extension files with content script only', function (done) {
+        var expected = [
+            'app/package.json',
+            'app/data/icon-16.png',
+            'app/data/icon-32.png',
+            'app/data/icon-64.png',
+            'app/data/contentscript.js',
+            'app/data/contentstyle.css',
+            'app/lib/main.js'
+        ];
+
+        var notExpected = [
+            'app/data/popup.html'
+        ];
+
+        runGen
+            .withOptions(options)
+            .withPrompt(
+                _.extend(prompts, {
+                    'name': 'temp',
+                    'description': 'description',
+                    'popup': false,
+                    'contentscript': true
+                })
+            )
+            .on('end', function () {
+                assert.file(expected);
+                assert.noFile(notExpected);
+                done();
+            });
+    });
+
+    it('creates expected extension files with popup only', function (done) {
+        var expected = [
+            'app/package.json',
+            'app/data/popup.html',
+            'app/data/icon-16.png',
+            'app/data/icon-32.png',
+            'app/data/icon-64.png',
+            'app/lib/main.js'
+        ];
+
+        var notExpected = [
+            'app/data/contentscript.js',
+            'app/data/contentstyle.css'
+        ];
+
+        runGen
+            .withOptions(options)
+            .withPrompt(
+                _.extend(prompts, {
+                    'name': 'temp',
+                    'description': 'description',
+                    'popup': true,
+                    'contentscript': false
+                })
+            )
+            .on('end', function () {
+                assert.file(expected);
+                assert.noFile(notExpected);
                 done();
             });
     });

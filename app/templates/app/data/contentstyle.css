@@ -1,0 +1,11 @@
+.hello-world {
+    position: fixed;
+    background: #5AADBB;
+    width: 50%;
+    left: 25%;
+    top: 0px;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 1.5em;
+    z-index: 1000;
+}

@@ -1,4 +1,5 @@
 'use strict';
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
@@ -28,6 +29,18 @@ module.exports = yeoman.generators.Base.extend({
                 name: 'description',
                 message: 'How would you like to describe this extension?',
                 default: 'My Firefox Extension'
+            },
+            {
+                name: 'popup',
+                message: 'Would you like to see a popup when toolbar\'s button is clicked?',
+                type: 'confirm',
+                default: true
+            },
+            {
+                name: 'contentscript',
+                message: 'Would you like to use a content script?',
+                type: 'confirm',
+                default: true
             }
         ];
 
@@ -35,6 +48,8 @@ module.exports = yeoman.generators.Base.extend({
             this.title = answers.name.replace(/\"/g, '\\"');
             this.appname = _.slugify(this.title);
             this.description = answers.description.replace(/\"/g, '\\"');
+            this.popup = answers.popup;
+            this.contentscript = answers.contentscript;
 
             done();
         }.bind(this));
@@ -47,6 +62,15 @@ module.exports = yeoman.generators.Base.extend({
                 this.destinationPath('app')
             );
             this.mkdir('dist');
+
+            if (!this.contentscript) {
+                this.fs.delete(this.destinationPath('app/data/contentscript.js'));
+                this.fs.delete(this.destinationPath('app/data/contentstyle.css'));
+            }
+
+            if (!this.popup) {
+                this.fs.delete(this.destinationPath('app/data/popup.html'));
+            }
         },
 
         gruntfile: function () {
