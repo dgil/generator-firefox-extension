@@ -7,7 +7,7 @@ This saves you time writing boilerplate code so you can start writing up the log
 
 ## Prerequisites
 
-Firefox Add-on SDK is required to run Firefox Extensions. You can download it here: [Firefox Add-on SDK installation page](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation).
+Firefox Add-on SDK is required to run Firefox Extension generator. How install it is described here: [Firefox Add-on SDK installation page](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation).
 
 If you want to use the `grunt-watch` it's required that you install [Extension Auto-Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/).
 
@@ -34,11 +34,16 @@ yo firefox-extension [extension-name]
 
 Need more information about Firefox Extensions? Please visit [Mozilla Developer Network Add-on](https://developer.mozilla.org/en-US/Add-ons/SDK).
 
-  
-## Test Firefox Extension
+## Test your extension
 
 To test the generated extension, run `grunt run`. A new browser with the test extension will start.
 
+## Build your extension
+
+To build the generated extension, run `cfx xpi --pkgdir=app`. This command will create a `xpi` file which you can distribute or upload to Mozilla's official Add-ons repository (AMO).
+
+More info on submitting your extension to AMO here: [Submitting an add-on to AMO](https://developer.mozilla.org/en-US/Add-ons/Submitting_an_add-on_to_AMO)
+ 
 ## Grunt tasks
 
 ### Run
