@@ -3,13 +3,13 @@
 
 [Yeoman](http://yeoman.io) generator for Firefox Extensions lets you quickly set up an extension with the basic file structure and recommended settings.
 
-This saves you time writing boilerplate code so you can start writing up the logic to your project straight away.
+This saves you time writing boilerplate code so you can start writing up the logic for your project straight away.
 
 ## Prerequisites
 
-Firefox Add-on SDK is required to run Firefox Extension generator. How install it is described here: [Firefox Add-on SDK installation page](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation).
+The Firefox Add-on SDK is required to run this Firefox Extension generator. How to install it is described here: [Firefox Add-on SDK installation page](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation).
 
-If you want to use the `grunt-watch` it's required that you install [Extension Auto-Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/).
+If you want to use `grunt-watch` it's required that you install the [Extension Auto-Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/).
 
 
 ## Getting Started
@@ -20,7 +20,7 @@ Install the generator:
 npm install -g generator-firefox-extension
 ```
 
-Make a new directory for the extension, and `cd` into it:
+Make a new directory for the extension and `cd` into it:
 
 ```
 mkdir my-new-firefox-extension && cd $_
@@ -40,15 +40,15 @@ To test the generated extension, run `grunt run`. A new browser with the test ex
 
 ## Build your extension
 
-To build the generated extension, run `cfx xpi --pkgdir=app`. This command will create a `xpi` file which you can distribute or upload to Mozilla's official Add-ons repository (AMO).
+To build the generated extension, run `cfx xpi --pkgdir=app`. This command will create an `xpi` file which you can distribute or upload to Mozilla's official Add-ons repository (AMO).
 
-More info on submitting your extension to AMO here: [Submitting an add-on to AMO](https://developer.mozilla.org/en-US/Add-ons/Submitting_an_add-on_to_AMO)
+More info on submitting your extension to AMO can be found here: [Submitting an add-on to AMO](https://developer.mozilla.org/en-US/Add-ons/Submitting_an_add-on_to_AMO).
  
 ## Grunt tasks
 
 ### Run
 
-This grunt task runs a new instance of Firefox with the add-on installed. When Firefox launches, in the top-right corner of the browser you'll see an icon with the Firefox logo. If you set the popup option to true and click the icon, you'll see a popup with a `hello world` message.
+This grunt task runs a new instance of Firefox with the add-on installed. When Firefox launches, in the top-right corner of the browser you'll see an icon with the Firefox logo. If you set the popup option to `true` and click the icon, you'll see a popup with a `hello world` message.
 
 
 ```
@@ -58,7 +58,7 @@ grunt run
 
 ### Watch
 
-This task will watch any change in the `app` folder (where extension's files are) and reload the extension automatically in your Firefox. 
+This task will watch for any changes in the `app` folder (where the extension's files are) and reload the extension automatically in Firefox. 
 
 ```
 grunt watch
