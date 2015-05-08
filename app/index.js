@@ -82,7 +82,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         bower: function () {
-            this.mkdir('app/bower_components');
+            this.mkdir('app/data/bower_components');
             this.template('_bower.json', 'bower.json');
             this.fs.copy(
                 this.templatePath('bowerrc'),

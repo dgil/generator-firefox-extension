@@ -32,6 +32,21 @@ module.exports = function(grunt) {
                 files: ['<%%= config.app %>/**/*.{html,js}'],
                 tasks: ['shell:xpi']
             }
+        },
+        wiredep: {
+            task: {
+                // Point to the files that should be updated when
+                // you run `grunt wiredep`
+                src: [
+                    'app/data/{,*}/*.html'
+                ],
+                options: {
+                    // See wiredep's configuration documentation for the options
+                    // you may pass:
+
+                    // https://github.com/taptapship/wiredep#configuration
+                }
+            }
         }
     });
 

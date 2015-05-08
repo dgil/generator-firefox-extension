@@ -62,9 +62,10 @@ describe('Firefox Extension generator', function () {
     it('creates expected extension files with defaults', function (done) {
         var expected = [
             'app/package.json',
-            'app/data/icon-16.png',
-            'app/data/icon-32.png',
-            'app/data/icon-64.png',
+            'app/data/bower_components',
+            'app/data/images/icon-16.png',
+            'app/data/images/icon-32.png',
+            'app/data/images/icon-64.png',
             'app/data/popup.html',
             'app/data/contentscript.js',
             'app/data/contentstyle.css',
@@ -82,9 +83,10 @@ describe('Firefox Extension generator', function () {
     it('creates expected extension files with content script only', function (done) {
         var expected = [
             'app/package.json',
-            'app/data/icon-16.png',
-            'app/data/icon-32.png',
-            'app/data/icon-64.png',
+            'app/data/bower_components',
+            'app/data/images/icon-16.png',
+            'app/data/images/icon-32.png',
+            'app/data/images/icon-64.png',
             'app/data/contentscript.js',
             'app/data/contentstyle.css',
             'app/lib/main.js'
@@ -115,9 +117,10 @@ describe('Firefox Extension generator', function () {
         var expected = [
             'app/package.json',
             'app/data/popup.html',
-            'app/data/icon-16.png',
-            'app/data/icon-32.png',
-            'app/data/icon-64.png',
+            'app/data/bower_components',
+            'app/data/images/icon-16.png',
+            'app/data/images/icon-32.png',
+            'app/data/images/icon-64.png',
             'app/lib/main.js'
         ];
 
