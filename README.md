@@ -34,6 +34,30 @@ yo firefox-extension [extension-name]
 
 Need more information about Firefox Extensions? Please visit [Mozilla Developer Network Add-on](https://developer.mozilla.org/en-US/Add-ons/SDK).
 
+## File structure
+Firefox extension generator scaffolds out a complete project directory structure for you:
+
+```
+.
+├── Gruntfile.js
+├── app
+│   ├── data
+│   │   ├── bower_components
+│   │   ├── contentscript.js
+│   │   ├── contentstyle.css
+│   │   ├── images
+│   │   │   ├── icon-16.png
+│   │   │   ├── icon-32.png
+│   │   │   └── icon-64.png
+│   │   └── popup.html
+│   ├── lib
+│   │   └── main.js
+│   └── package.json
+├── bower.json
+├── dist
+└── package.json
+```
+
 ## Test your extension
 
 To test the generated extension, run `grunt run`. A new browser with the test extension will start.
@@ -64,6 +88,8 @@ This task will watch for any changes in the `app` folder (where the extension's 
 grunt watch
 ```
 
+**Remember:** You need to install [Extension Auto-Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/) in order to use this functionality.
+
 ### Wiredep
 
 This task finds your Bower components and injects them directly into the HTML file you specify.
@@ -71,8 +97,6 @@ This task finds your Bower components and injects them directly into the HTML fi
 ```
 grunt wiredep
 ```
-
-**Remember:** You need to install [Extension Auto-Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/) in order to use this functionality.
 
 ## Options
 
