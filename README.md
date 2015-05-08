@@ -63,6 +63,15 @@ This task will watch for any changes in the `app` folder (where the extension's 
 ```
 grunt watch
 ```
+
+### Wiredep
+
+This task finds your Bower components and injects them directly into the HTML file you specify.
+
+```
+grunt wiredep
+```
+
 **Remember:** You need to install [Extension Auto-Installer](https://addons.mozilla.org/en-US/firefox/addon/autoinstaller/) in order to use this functionality.
 
 ## Options
