@@ -7,10 +7,12 @@ module.exports = function(grunt) {
 
     // Configurable paths
     var config = {
-        name: '<%= appname %>',
         app: 'app',
         dist: 'dist'
     };
+
+    config.name = grunt.file.readJSON(config.app + '/package.json').name;
+
 
     grunt.initConfig({
         config: config,
@@ -29,7 +31,7 @@ module.exports = function(grunt) {
         },
         watch: {
             xpi: {
-                files: ['<%%= config.app %>/**/*.{html,js}'],
+                files: ['<%%= config.app %>/**/*'],
                 tasks: ['shell:xpi']
             }
         },
