@@ -64,7 +64,7 @@ To test the generated extension, run `grunt run`. A new browser with the test ex
 
 ## Build your extension
 
-To build the generated extension, run `cfx xpi --pkgdir=app`. This command will create an `xpi` file which you can distribute or upload to Mozilla's official Add-ons repository (AMO).
+To build the generated extension, run `cfx xpi --pkgdir=app`. This command will create an `xpi` file which you can distribute or upload to Mozilla's official Add-ons repository (AMO). Alternatively, you can run `grunt build` which will create the `xpi` file in the `dist` folder.
 
 More info on submitting your extension to AMO can be found here: [Submitting an add-on to AMO](https://developer.mozilla.org/en-US/Add-ons/Submitting_an_add-on_to_AMO).
  
@@ -96,6 +96,14 @@ This task finds your Bower components and injects them directly into the HTML fi
 
 ```
 grunt wiredep
+```
+
+### Build
+
+This task build the `xpi` file and puts it in the `dist` folder.
+
+```
+grunt build
 ```
 
 ## Options
