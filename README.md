@@ -64,10 +64,10 @@ To test the generated extension, run `grunt run`. A new browser with the test ex
 
 ## Build your extension
 
-To build the generated extension, run `cfx xpi --pkgdir=app`. This command will create an `xpi` file which you can distribute or upload to Mozilla's official Add-ons repository (AMO). Alternatively, you can run `grunt build` which will create the `xpi` file in the `dist` folder.
+To build the generated extension, run `jpm xpi --addon-dir=app`. This command will create an `xpi` file which you can distribute or upload to Mozilla's official Add-ons repository (AMO). Alternatively, you can run `grunt build` which will create the `xpi` file in the `dist` folder.
 
 More info on submitting your extension to AMO can be found here: [Submitting an add-on to AMO](https://developer.mozilla.org/en-US/Add-ons/Submitting_an_add-on_to_AMO).
- 
+
 ## Grunt tasks
 
 ### Run
@@ -82,7 +82,7 @@ grunt run
 
 ### Watch
 
-This task will watch for any changes in the `app` folder (where the extension's files are) and reload the extension automatically in Firefox. 
+This task will watch for any changes in the `app` folder (where the extension's files are) and reload the extension automatically in Firefox.
 
 ```
 grunt watch

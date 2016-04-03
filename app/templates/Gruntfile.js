@@ -11,34 +11,29 @@ module.exports = function(grunt) {
         dist: 'dist'
     };
 
-    config.name = grunt.file.readJSON(config.app + '/package.json').name;
-
+    config = Object.assign(config, grunt.file.readJSON(config.app + '/package.json'));
 
     grunt.initConfig({
         config: config,
 
         shell: {
             run: {
-                command: 'cfx run --pkgdir=<%%= config.app %>'
+                command: 'jpm run --addon-dir <%%= config.app %>'
             },
-            xpi: {
-                command: [
-                    'cfx xpi --pkgdir=<%%= config.app %>',
-                    'mv <%%= config.name %>.xpi <%%= config.dist %>',
-                    'wget --post-file=<%%= config.dist %>/<%%= config.name %>.xpi http://localhost:8888/ || echo>/dev/null'
-                ].join('&&')
-            },
+            post: {
+                command: 'jpm post --post-url http://localhost:8888/ --addon-dir <%%= config.app %>'
+      	    },
             build: {
                 command: [
-                    'cfx xpi --pkgdir=<%%= config.app %>',
-                    'mv <%%= config.name %>.xpi <%%= config.dist %>'
+                    'jpm xpi --addon-dir <%%= config.app %>',
+                    'mv <%%= config.app %>/<%%= config.id %>-<%%= config.version %>.xpi <%%= config.dist %>'
                 ].join('&&')
             }
         },
         watch: {
             xpi: {
-                files: ['<%%= config.app %>/**/*'],
-                tasks: ['shell:xpi']
+                files: ['<%%= config.app %>/**/*', '!<%%= config.app %>/**/*.xpi'],
+                tasks: ['shell:post']
             }
         },
         wiredep: {
