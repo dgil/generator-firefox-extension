@@ -1,6 +1,6 @@
 {
   "name": "generator-firefox-extension",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Yeoman generator for Firefox Extensions",
   "license": "MIT",
   "main": "app/index.js",
